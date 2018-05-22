@@ -74,13 +74,13 @@ if strcmp(mode.add_dna_driver, 'Setup Species')
     coreSpecies = {RNAP,RNAPbound,P1,P2};
     % empty cellarray for amount => zero amount
     txtl_addspecies(tube, coreSpecies, cell(1,size(coreSpecies,2)), 'Internal');
-    if mode.utr_attenuator_flag
-        txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP,RNAPbound, prom_spec, rbs_spec, gene_spec ); %leaky slow rate
-        txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP, [RNAPbound ':' P2 ],prom_spec, rbs_spec, gene_spec,{P2} );  %lowest rate
-    else
-        txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
-        txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
-    end
+%     if mode.utr_attenuator_flag
+%         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP,RNAPbound, prom_spec, rbs_spec, gene_spec ); %leaky slow rate
+%         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP, [RNAPbound ':' P2 ],prom_spec, rbs_spec, gene_spec,{P2} );  %lowest rate
+%     else
+%         txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
+%         txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
+%     end
 
 %%%%%%%%%%%%%%%%%%% DRIVER MODE: Setup Reactions %%%%%%%%%%%%%%%%%%%%%%%%%%    
 elseif strcmp(mode.add_dna_driver,'Setup Reactions')
@@ -113,13 +113,13 @@ elseif strcmp(mode.add_dna_driver,'Setup Reactions')
     Pobj2r = addparameter(Kobj2, 'kr', paramObj.RNAPbound_Reverse*1000);
     set(Kobj2, 'ParameterVariableNames', {'kf', 'kr'});
 
-    if mode.utr_attenuator_flag
-        txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP,RNAPbound, prom_spec, rbs_spec, gene_spec ); %leaky slow rate
-        txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP, [RNAPbound ':' P2 ],prom_spec, rbs_spec, gene_spec,{P2} );  %lowest rate
-    else
-        txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
-        txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
-    end
+%     if mode.utr_attenuator_flag
+%         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP,RNAPbound, prom_spec, rbs_spec, gene_spec ); %leaky slow rate
+%         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP, [RNAPbound ':' P2 ],prom_spec, rbs_spec, gene_spec,{P2} );  %lowest rate
+%     else
+%         txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
+%         txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
+%     end
     
 %%%%%%%%%%%%%%%%%%% DRIVER MODE: error handling %%%%%%%%%%%%%%%%%%%%%%%%%%%   
 else

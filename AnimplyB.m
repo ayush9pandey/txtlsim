@@ -27,7 +27,7 @@ tube2 = txtl_buffer('E30VNPRL');
 tube3 = txtl_newtube('gene_expression');
 
 % Define the DNA strands, and all the relevant reactions
-% txtl_add_dna(tube3, 'psigX(50)', 'utr1(20)', 'tetR(1200)', 0.5, 'plasmid');
+txtl_add_dna(tube3, 'psigX(50)', 'utr1(20)', 'tetR(1200)', 0.5, 'plasmid');
 txtl_add_dna(tube3, 'p28_ptet(50)', 'utr1(20)', 'deGFP(1000)', 2, 'plasmid');
 % Mix the contents of the individual tubes
 Mobj = txtl_combine([tube1, tube2, tube3]);
