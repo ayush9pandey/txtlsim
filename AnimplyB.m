@@ -29,6 +29,8 @@ tube3 = txtl_newtube('gene_expression');
 % Define the DNA strands, and all the relevant reactions
 txtl_add_dna(tube3, 'psigX(50)', 'utr1(20)', 'tetR(1200)', 0.5, 'plasmid');
 txtl_add_dna(tube3, 'p28_ptet(50)', 'utr1(20)', 'deGFP(1000)', 2, 'plasmid');
+% txtl_add_dna(tube3, 'plac(50)', 'utr1(20)', 'protein_sigmaX(1000)', 5, 'plasmid');
+txtl_add_dna(tube3, 'p70(50)', 'utr1(20)', 'protein_sigma28(1200)', 0.2, 'plasmid');
 % Mix the contents of the individual tubes
 Mobj = txtl_combine([tube1, tube2, tube3]);
 
@@ -55,13 +57,13 @@ txtl_plot(simData,Mobj);
 %% Model Structure
 % The model is organized as a model object, with sub objects specifying
 % Parameters, Reactions, Species, etc. Type in 
-Mobj
+% Mobj
 
 %%
 % There is one comaprtment, 2 events, 73 parameters, 47 Reactions, no rules
 % and 43 Species in the toolbox. We can explore further by typing,
 % for example, 
-Mobj.Species
+% Mobj.Species
 
 %%
 % We see that there are 43 species in the model, and they have somewhat 
@@ -75,7 +77,7 @@ Mobj.Species
 % other associated properties. You can explore further by accessing
 % individual species using their index, and using the `get' and `set' commands
 % to get and set the properties of the species. For example, try typing 
-Mobj.Species(1)
+% Mobj.Species(1)
 
 %% 
 % This gives you the first species in the model. You can find out what
@@ -115,18 +117,26 @@ set(Mobj.Species(1), 'InitialAmount', 50)
 % Use the function findspecies to get the index of the species object of interest. For
 % example, if you want to plot the trajectory of the dimerized tetR
 % protein, you could type in
-
+% 
 tetRindex = findspecies(Mobj, 'protein tetRdimer');
 figure
 plot(simData.Time/3600, simData.data(:,tetRindex));
-title('Dimerized tetR concentration')
+title('protein tetRdimer concentration')
 ylabel('concentration, AU')
 xlabel('time, AU')
 curraxis = axis; 
 axis([curraxis(1:2) 0 curraxis(4)])
-% 
 
 
+
+deGFPindex = findspecies(Mobj, 'protein deGFP');
+figure
+plot(simData.Time/3600, simData.data(:,deGFPindex));
+title('protein deGFP concentration')
+ylabel('concentration, AU')
+xlabel('time, AU')
+curraxis = axis; 
+axis([curraxis(1:2) 0 curraxis(4)])
 
 %%
 
