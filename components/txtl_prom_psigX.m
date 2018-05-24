@@ -46,7 +46,6 @@ RNAP = 'RNAPSIGX';			% RNA polymerase name for reactions
 RNAPbound = ['RNAPSIGX:' dna.Name];
 % importing the corresponding parameters
 paramObj = txtl_component_config('sigmaX');
-
 %%%%%%%%%%%%%%%%%%% DRIVER MODE: Setup Species %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 if strcmp(mode.add_dna_driver, 'Setup Species')
     

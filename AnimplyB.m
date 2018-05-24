@@ -29,8 +29,8 @@ tube3 = txtl_newtube('gene_expression');
 % Define the DNA strands, and all the relevant reactions
 txtl_add_dna(tube3, 'psigX(50)', 'utr1(20)', 'tetR(1200)', 0.5, 'plasmid');
 txtl_add_dna(tube3, 'p28_ptet(50)', 'utr1(20)', 'deGFP(1000)', 2, 'plasmid');
-txtl_add_dna(tube3, 'plac(50)', 'utr1(20)', 'protein_sigmaX(1000)', 5, 'plasmid');
-txtl_add_dna(tube3, 'plac(50)', 'utr1(20)', 'protein_sigma28(1200)', 0.2, 'plasmid');
+% txtl_add_dna(tube3, 'plac(50)', 'utr1(20)', 'sigmaX(1000) ', 5, 'plasmid');
+txtl_add_dna(tube3, 'plac(50)', 'utr1(20)', 'sigma28(1200)', 0.2, 'plasmid');
 % Mix the contents of the individual tubes
 Mobj = txtl_combine([tube1, tube2, tube3]);
 
@@ -118,10 +118,10 @@ set(Mobj.Species(1), 'InitialAmount', 50)
 % example, if you want to plot the trajectory of the dimerized tetR
 % protein, you could type in
 % 
-tetRindex = findspecies(Mobj, 'protein tetRdimer');
+tetRindex = findspecies(Mobj, 'protein tetR');
 figure
 plot(simData.Time/3600, simData.data(:,tetRindex));
-title('protein tetRdimer concentration')
+title('protein tetR concentration')
 ylabel('concentration, AU')
 xlabel('time, AU')
 curraxis = axis; 

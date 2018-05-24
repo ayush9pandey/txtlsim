@@ -78,8 +78,8 @@ if strcmp(mode.add_dna_driver, 'Setup Species')
 %         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP,RNAPbound, prom_spec, rbs_spec, gene_spec ); %leaky slow rate
 %         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP, [RNAPbound ':' P2 ],prom_spec, rbs_spec, gene_spec,{P2} );  %lowest rate
 %     else
-%         txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
-%         txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
+        txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
+        txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
 %     end
 
 %%%%%%%%%%%%%%%%%%% DRIVER MODE: Setup Reactions %%%%%%%%%%%%%%%%%%%%%%%%%%    
@@ -117,10 +117,10 @@ elseif strcmp(mode.add_dna_driver,'Setup Reactions')
 %         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP,RNAPbound, prom_spec, rbs_spec, gene_spec ); %leaky slow rate
 %         txtl_transcription_RNAcircuits(mode, tube, dna, rna, RNAP, [RNAPbound ':' P2 ],prom_spec, rbs_spec, gene_spec,{P2} );  %lowest rate
 %     else
-%         txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
-%         txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
+        txtl_transcription(mode, tube, dna, rna, RNAP,RNAPbound); %leaky slow rate
+        txtl_transcription(mode, tube, dna, rna, RNAP,[RNAPbound ':' P2 ],{P2});  %lowest rate
 %     end
-    
+%     
 %%%%%%%%%%%%%%%%%%% DRIVER MODE: error handling %%%%%%%%%%%%%%%%%%%%%%%%%%%   
 else
     error('txtltoolbox:txtl_prom_p28_ptet:undefinedmode', ...
